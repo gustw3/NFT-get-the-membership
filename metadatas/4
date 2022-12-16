@@ -1,0 +1,10 @@
+{
+	"description" : "Get The Membership is an NFT collection created by the creative designer Ombeline Brun and the developer Augustin Brun. The goal of this collection is to show how NFTs can transform the membership experience and demonstrate our talents through hard work.",
+	"image" : "https://bafybeifjqzu77s3q5d45sa5gcergooq7chtxno5ow3ogvpns7ccommfkk4.ipfs.nftstorage.link/images/GLORIOUSBRONZE.jpg",
+	"name" : "Glorious Bronze",
+  "attributes": [
+    {
+      "value": "Bronze"
+    }
+  ]
+}
