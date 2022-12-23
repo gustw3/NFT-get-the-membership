@@ -1,21 +1,21 @@
 const { assert, expect } = require("chai");
 const hre = require("hardhat");
 
-describe('Tests PremiumMembership', function () {
+describe('Tests Membership', function () {
   let contract;
   let owner;
   let user
 
   before(async function () {
       [owner, user] = await ethers.getSigners();
-      const Contract = await ethers.getContractFactory('GetTheMembership');
+      const Contract = await ethers.getContractFactory('Membership');
       contract = await Contract.deploy();
   });
 
   it("should have the right id", async function () {
       const idDiamond = await contract.DAZZLING_DIAMOND();
       const idGold = await contract.BOMBASTIC_GOLD();
-      const idSilver = await contract.PRESTIGIOUS_SILVER();
+      const idSilver = await contract.AMAZING_SILVER();
       const idBronze = await contract.GLORIOUS_BRONZE();
 
       expect(idDiamond).to.equal(1);

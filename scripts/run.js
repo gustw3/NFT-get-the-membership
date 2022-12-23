@@ -1,5 +1,5 @@
 const main = async () => {
-  const nftContractFactory = await hre.ethers.getContractFactory('GetTheMembership');
+  const nftContractFactory = await hre.ethers.getContractFactory('Membership');
   const nftContract = await nftContractFactory.deploy();
   await nftContract.deployed();
   console.log("Contract deployed to:", nftContract.address);

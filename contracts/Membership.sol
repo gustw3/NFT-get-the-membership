@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
 
-contract GetTheMembership is ERC1155, Ownable, ERC1155Supply {
+contract Membership is ERC1155, Ownable, ERC1155Supply {
 
     uint256 public constant DAZZLING_DIAMOND = 1;
     uint256 public constant BOMBASTIC_GOLD = 2;
@@ -19,7 +19,7 @@ contract GetTheMembership is ERC1155, Ownable, ERC1155Supply {
 
     string private _uri;
 
-    constructor() ERC1155("https://bafybeichlx2azt4bjsbz225p6iybwjfyi5o4ed74j4e7cdk6bvo4cbsqsa.ipfs.nftstorage.link/metadatas/") {
+    constructor() ERC1155("https://bafybeigie22kzon3mlsdd2vpczylputmo3gxxz6cskumrkpl7owhzrhn5i.ipfs.nftstorage.link/metadatas/") {
         tokenIdToMintPrice[DAZZLING_DIAMOND] = 0.005 ether;
         tokenIdToMintPrice[BOMBASTIC_GOLD] = 0.003 ether;
         tokenIdToMintPrice[AMAZING_SILVER] = 0.002 ether;
@@ -59,6 +59,13 @@ contract GetTheMembership is ERC1155, Ownable, ERC1155Supply {
         require(id < 5, "Sorry you're trying to mint the wrong NFT.");
         require(msg.value == tokenIdToMintPrice[id], "Not enough money");
         _mint(_address, id, 1, "");
+    }
+
+    function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
+        public
+        onlyOwner
+    {
+        _mintBatch(to, ids, amounts, data);
     }
 
     function withdraw(address _addr) external onlyOwner {
